@@ -7,10 +7,14 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract UsdcTokenReserve {
 
-    address usdc = 0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8;
+    address usdc;
 
     // 映射用户地址 <-> 货币存储量
     mapping(address => uint256) public userReserve;
+
+    function setUsdcAddress(address addr) public {
+        usdc = addr;
+    }
 
     // 存钱
     function supply(uint amount) public payable returns (uint total) {

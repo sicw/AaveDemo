@@ -11,12 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/contracts/UsdcToken.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/AaveDemo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracts/UsdcTokenReserve.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/UsdcTokenReserve.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +77,7 @@
       <updated>1690953027003</updated>
       <workItem from="1690953028118" duration="1605000" />
       <workItem from="1691384147018" duration="2978000" />
-      <workItem from="1691406506519" duration="316000" />
+      <workItem from="1691406506519" duration="921000" />
     </task>
     <servers />
   </component>
