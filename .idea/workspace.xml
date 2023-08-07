@@ -11,8 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/contracts/UsdcToken.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/AaveDemo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracts/UsdcTokenReserve.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/UsdcTokenReserve.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +37,39 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/contracts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/ts-mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$/contracts" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Reserve" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/ts-mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--timeout 50000</extra-mocha-options>
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/AaveDemo.ts</test-file>
+      <test-names>
+        <name value="Reserve" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Mocha.Reserve" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,7 +80,8 @@
       <option name="presentableId" value="Default" />
       <updated>1690953027003</updated>
       <workItem from="1690953028118" duration="1605000" />
-      <workItem from="1691384147018" duration="386000" />
+      <workItem from="1691384147018" duration="2978000" />
+      <workItem from="1691406506519" duration="316000" />
     </task>
     <servers />
   </component>
@@ -69,5 +99,31 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2536" y="174" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1691386004580">
+      <screen x="1792" y="-208" width="2560" height="1440" />
+    </state>
+    <state x="2536" y="174" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691386004580" />
+    <state width="2539" height="424" key="GridCell.Tab.0.bottom" timestamp="1691390290542">
+      <screen x="1792" y="-185" width="2560" height="1417" />
+    </state>
+    <state width="2539" height="424" key="GridCell.Tab.0.bottom/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691386019415" />
+    <state width="2539" height="424" key="GridCell.Tab.0.bottom/0.23.1792.1033/1792.-185.2560.1417@1792.-185.2560.1417" timestamp="1691390290542" />
+    <state width="2539" height="424" key="GridCell.Tab.0.center" timestamp="1691390290540">
+      <screen x="1792" y="-185" width="2560" height="1417" />
+    </state>
+    <state width="2539" height="424" key="GridCell.Tab.0.center/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691386019410" />
+    <state width="2539" height="424" key="GridCell.Tab.0.center/0.23.1792.1033/1792.-185.2560.1417@1792.-185.2560.1417" timestamp="1691390290539" />
+    <state width="2539" height="424" key="GridCell.Tab.0.left" timestamp="1691390290538">
+      <screen x="1792" y="-185" width="2560" height="1417" />
+    </state>
+    <state width="2539" height="424" key="GridCell.Tab.0.left/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691386019408" />
+    <state width="2539" height="424" key="GridCell.Tab.0.left/0.23.1792.1033/1792.-185.2560.1417@1792.-185.2560.1417" timestamp="1691390290538" />
+    <state width="2539" height="424" key="GridCell.Tab.0.right" timestamp="1691390290541">
+      <screen x="1792" y="-185" width="2560" height="1417" />
+    </state>
+    <state width="2539" height="424" key="GridCell.Tab.0.right/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691386019413" />
+    <state width="2539" height="424" key="GridCell.Tab.0.right/0.23.1792.1033/1792.-185.2560.1417@1792.-185.2560.1417" timestamp="1691390290541" />
   </component>
 </project>
