@@ -19,8 +19,12 @@ contract UsdcTokenReserve {
 
     // 存钱
     function supply(uint amount) public {
+        console.log('supply msg.sender', msg.sender, 'amount', amount);
+
+        console.log('before transfer balance', UsdcToken(usdc).balanceOf(msg.sender));
         UsdcToken(usdc).transferFrom(msg.sender, address(this), amount);
         userReserve[msg.sender] = userReserve[msg.sender] + amount;
+        console.log('after transfer balance', UsdcToken(usdc).balanceOf(address(this)));
     }
 
     // 取钱
