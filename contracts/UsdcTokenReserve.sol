@@ -3,11 +3,12 @@ pragma solidity ^0.8.9;
 
 // Uncomment this line to use console.log
 import "hardhat/console.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "./UsdcToken.sol";
 
 contract UsdcTokenReserve {
 
-    address usdc;
+    address public usdc;
 
     // 映射用户地址 <-> 货币存储量
     mapping(address => uint256) public userReserve;
@@ -18,7 +19,17 @@ contract UsdcTokenReserve {
 
     // 存钱
     function supply(uint amount) public payable returns (uint total) {
-        IERC20(usdc).transferFrom(msg.sender, address(this), amount);
+        console.logString("amount:");
+        console.logUint(amount);
+        console.logString("msg.sender:");
+        console.logAddress(msg.sender);
+
+        bool ret = UsdcToken(usdc).transferFrom(msg.sender, address(this), amount);
+        console.logBool(ret);
+
+//        uint ret = UsdcToken(usdc).totalSupply();
+//        console.logUint(ret);
+
         userReserve[msg.sender] = userReserve[msg.sender] + msg.value;
     }
 

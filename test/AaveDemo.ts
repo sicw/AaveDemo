@@ -5,6 +5,7 @@ import {
 import {anyValue} from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import {expect} from "chai";
 import {ethers} from "hardhat";
+import {parseEther} from "ethers";
 
 describe("Reserve", function () {
     // We define a fixture to reuse the same setup in every test.
@@ -17,13 +18,17 @@ describe("Reserve", function () {
         const usdcToken = await ethers.getContractFactory("UsdcToken");
         const usdc = await usdcToken.deploy("USDC", "USDC");
 
-        return {usdc};
+        const usdcTokenReserveToken = await ethers.getContractFactory("UsdcTokenReserve");
+        const usdcTokenReserve = await usdcTokenReserveToken.deploy();
+
+        return {usdc, usdcTokenReserve};
     }
 
     describe("Deployment", function () {
         it("Should set the right unlockTime", async function () {
-            const {usdc} = await loadFixture(deployOneYearLockFixture);
-            console.log(usdc.getAddress);
+            const {usdc, usdcTokenReserve} = await loadFixture(deployOneYearLockFixture);
+            await usdcTokenReserve.setUsdcAddress(await  usdc.getAddress());
+            usdcTokenReserve.supply(10);
         });
     });
 });
