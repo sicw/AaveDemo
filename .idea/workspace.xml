@@ -10,7 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="" />
+    <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/UsdcToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/UsdcToken.sol" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +79,7 @@
       <workItem from="1691384147018" duration="2978000" />
       <workItem from="1691406506519" duration="921000" />
       <workItem from="1691410224950" duration="1268000" />
-      <workItem from="1691471366241" duration="1501000" />
+      <workItem from="1691471366241" duration="2352000" />
     </task>
     <servers />
   </component>

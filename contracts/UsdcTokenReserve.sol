@@ -18,23 +18,13 @@ contract UsdcTokenReserve {
     }
 
     // 存钱
-    function supply(uint amount) public payable returns (uint total) {
-        console.logString("amount:");
-        console.logUint(amount);
-        console.logString("msg.sender:");
-        console.logAddress(msg.sender);
-
-        bool ret = UsdcToken(usdc).transferFrom(msg.sender, address(this), amount);
-        console.logBool(ret);
-
-//        uint ret = UsdcToken(usdc).totalSupply();
-//        console.logUint(ret);
-
-        userReserve[msg.sender] = userReserve[msg.sender] + msg.value;
+    function supply(uint amount) public {
+        UsdcToken(usdc).transferFrom(msg.sender, address(this), amount);
+        userReserve[msg.sender] = userReserve[msg.sender] + amount;
     }
 
     // 取钱
-    function withdraw(uint amount) public returns (uint total) {
+    function withdraw(uint amount) public {
         require(userReserve[msg.sender] >= amount, "no engouh");
         userReserve[msg.sender] = userReserve[msg.sender] - amount;
         // todo 计算利息
