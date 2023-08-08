@@ -32,6 +32,8 @@ describe("Reserve", function () {
         it("Should set the right unlockTime", async function () {
             const {usdc, usdcTokenReserve} = await loadFixture(deployOneYearLockFixture);
             await usdcTokenReserve.setUsdcAddress(await  usdc.getAddress());
+
+            await usdc.approve(await usdcTokenReserve.getAddress(), 10);
             usdcTokenReserve.supply(10);
         });
     });
