@@ -21,6 +21,10 @@ describe("Reserve", function () {
         const usdcTokenReserveToken = await ethers.getContractFactory("UsdcTokenReserve");
         const usdcTokenReserve = await usdcTokenReserveToken.deploy();
 
+
+        console.log("owner: " + await owner.getAddress());
+        console.log("usdc: " + await usdc.getAddress());
+        console.log("usdcTokenReserve: " + await usdcTokenReserve.getAddress());
         return {usdc, usdcTokenReserve};
     }
 

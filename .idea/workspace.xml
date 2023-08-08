@@ -11,8 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/UsdcToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/UsdcToken.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/Lock.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Lock.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/AaveDemo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/AaveDemo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Lock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demo/Lock.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,7 @@
       <workItem from="1691384147018" duration="2978000" />
       <workItem from="1691406506519" duration="921000" />
       <workItem from="1691410224950" duration="1268000" />
-      <workItem from="1691471366241" duration="2352000" />
+      <workItem from="1691471366241" duration="2700000" />
     </task>
     <servers />
   </component>
