@@ -18,6 +18,9 @@ describe("Reserve", function () {
         const usdcToken = await ethers.getContractFactory("UsdcToken");
         const usdc = await usdcToken.deploy("USDC", "USDC");
 
+        const usdtToken = await ethers.getContractFactory("UsdtToken");
+        const usdt = await usdcToken.deploy("USDT", "USDT");
+
         const assetReserveFactory = await ethers.getContractFactory("AssetReserve");
         const assetReserve = await assetReserveFactory.deploy();
 
@@ -25,13 +28,13 @@ describe("Reserve", function () {
         console.log("owner: " + await owner.getAddress());
         console.log("usdc: " + await usdc.getAddress());
         console.log("assetReserve: " + await assetReserve.getAddress());
-        return {usdc, assetReserve};
+        return {usdc, usdt, assetReserve};
     }
 
     describe("Deployment", function () {
         it("Should set the right unlockTime", async function () {
-            const {usdc, assetReserve} = await loadFixture(deployOneYearLockFixture);
-            await assetReserve.setUsdcAddress(await  usdc.getAddress());
+            const {usdc, usdt, assetReserve} = await loadFixture(deployOneYearLockFixture);
+            await assetReserve.setUsdcAddress(await usdc.getAddress());
 
             await usdc.approve(await assetReserve.getAddress(), 20);
             // 存钱
