@@ -33,8 +33,14 @@ describe("Reserve", function () {
             const {usdc, usdcTokenReserve} = await loadFixture(deployOneYearLockFixture);
             await usdcTokenReserve.setUsdcAddress(await  usdc.getAddress());
 
-            await usdc.approve(await usdcTokenReserve.getAddress(), 10);
+            await usdc.approve(await usdcTokenReserve.getAddress(), 20);
+            // 存钱
             usdcTokenReserve.supply(10);
+            usdcTokenReserve.supply(10);
+
+            // 取钱
+            usdcTokenReserve.withdraw(10);
+            usdcTokenReserve.withdraw(10);
         });
     });
 });
