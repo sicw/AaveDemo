@@ -18,29 +18,29 @@ describe("Reserve", function () {
         const usdcToken = await ethers.getContractFactory("UsdcToken");
         const usdc = await usdcToken.deploy("USDC", "USDC");
 
-        const usdcTokenReserveToken = await ethers.getContractFactory("UsdcTokenReserve");
-        const usdcTokenReserve = await usdcTokenReserveToken.deploy();
+        const assetReserveFactory = await ethers.getContractFactory("AssetReserve");
+        const assetReserve = await assetReserveFactory.deploy();
 
 
         console.log("owner: " + await owner.getAddress());
         console.log("usdc: " + await usdc.getAddress());
-        console.log("usdcTokenReserve: " + await usdcTokenReserve.getAddress());
-        return {usdc, usdcTokenReserve};
+        console.log("assetReserve: " + await assetReserve.getAddress());
+        return {usdc, assetReserve};
     }
 
     describe("Deployment", function () {
         it("Should set the right unlockTime", async function () {
-            const {usdc, usdcTokenReserve} = await loadFixture(deployOneYearLockFixture);
-            await usdcTokenReserve.setUsdcAddress(await  usdc.getAddress());
+            const {usdc, assetReserve} = await loadFixture(deployOneYearLockFixture);
+            await assetReserve.setUsdcAddress(await  usdc.getAddress());
 
-            await usdc.approve(await usdcTokenReserve.getAddress(), 20);
+            await usdc.approve(await assetReserve.getAddress(), 20);
             // 存钱
-            usdcTokenReserve.supply(10);
-            usdcTokenReserve.supply(10);
+            assetReserve.supply(10);
+            assetReserve.supply(10);
 
             // 取钱
-            usdcTokenReserve.withdraw(10);
-            usdcTokenReserve.withdraw(10);
+            assetReserve.withdraw(10);
+            assetReserve.withdraw(10);
         });
     });
 });

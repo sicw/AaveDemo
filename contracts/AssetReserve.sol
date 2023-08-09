@@ -6,7 +6,7 @@ import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./UsdcToken.sol";
 
-contract UsdcTokenReserve {
+contract AssetReserve {
 
     address public usdc;
 
