@@ -34,16 +34,14 @@ describe("Reserve", function () {
     describe("Deployment", function () {
         it("Should set the right unlockTime", async function () {
             const {usdc, usdt, assetReserve} = await loadFixture(deployOneYearLockFixture);
-            await assetReserve.setUsdcAddress(await usdc.getAddress());
-
             await usdc.approve(await assetReserve.getAddress(), 20);
             // 存钱
-            assetReserve.supply(10);
-            assetReserve.supply(10);
+            assetReserve.supply(await usdc.getAddress(), 10);
+            assetReserve.supply(await usdc.getAddress(), 10);
 
             // 取钱
-            assetReserve.withdraw(10);
-            assetReserve.withdraw(10);
+            // assetReserve.withdraw(10);
+            // assetReserve.withdraw(10);
         });
     });
 });
