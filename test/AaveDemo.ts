@@ -34,13 +34,18 @@ describe("Reserve", function () {
     describe("Deployment", function () {
         it("Should set the right unlockTime", async function () {
             const {usdc, usdt, assetReserve} = await loadFixture(deployOneYearLockFixture);
-            await usdc.approve(await assetReserve.getAddress(), 20);
+            const usdcAddress = await usdc.getAddress();
+            const usdtAddress = await usdt.getAddress();
+            const assetReserveAddress = await assetReserve.getAddress();
+
+            // 授权给transferFrom中的to地址
+            await usdc.approve(assetReserveAddress, 20);
             // 存钱
-            assetReserve.supply(await usdc.getAddress(), 10);
-            assetReserve.supply(await usdc.getAddress(), 10);
+            assetReserve.supply(usdcAddress, 10);
+            assetReserve.supply(usdcAddress, 10);
 
             // 取钱
-            // assetReserve.withdraw(10);
+            assetReserve.withdraw(usdcAddress, 10);
             // assetReserve.withdraw(10);
         });
     });
