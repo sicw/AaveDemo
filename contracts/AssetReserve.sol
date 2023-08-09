@@ -43,15 +43,29 @@ contract AssetReserve {
         // todo 计算利息
         console.log('after withdraw balance', IERC20(asset).balanceOf(address(this)));
     }
-    //
-    //    // 借钱
-    //    function borrow(uint amount) public {
-    //        // 判断是否有足够的存款
-    //        require(amount <= assetreserve[msg.sender], "engouh");
-    //        ierc20(usdc).transferfrom(address(this), msg.sender, amount);
-    //        assetreserve[msg.sender] = assetreserve[msg.sender] - amount;
-    //    }
-    //
+
+    // 借钱
+    function borrow(address borrowAsset, address mortgageAsset, uint amount) public {
+        // todo 判断是否有足够的同等价值的资产
+        //require(amount <= assetreserve[msg.sender], "engouh");】
+
+        // 扣除超额抵押资产到另外地址(用户)
+        userAsset[mortgageAsset][msg.sender].assetReserve -= amount;
+        userAsset[mortgageAsset][msg.sender].mortgageReserve += amount;
+
+        // 减少总资产中借出去的部分(总资产)
+        assetReserve[borrowAsset].assetReserve -= amount;
+
+        // 转移资产给msg.sender
+        IERC20(borrowAsset).transfer(msg.sender, amount);
+
+        console.log('borrowAsset balance', IERC20(borrowAsset).balanceOf(address(this)));
+        console.log('borrowAsset reserve', assetReserve[borrowAsset].assetReserve);
+        console.log('msg.sender mortgageAsset reserve', userAsset[mortgageAsset][msg.sender].mortgageReserve);
+        console.log('msg.sender oriAsset reserve', userAsset[mortgageAsset][msg.sender].assetReserve);
+        console.log('msg.sender borrow balance', IERC20(borrowAsset).balanceOf(msg.sender));
+    }
+
     //    // 还钱
     //    function giveback(uint amount) public {
     //        assetreserve[msg.sender] = assetreserve[msg.sender] + amount;
