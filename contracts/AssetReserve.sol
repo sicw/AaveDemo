@@ -79,7 +79,7 @@ contract AssetReserve {
         个人USDC存款 +
         个人USDC抵押 -
     */
-    function giveback(address borrowAsset, address mortgageAsset, uint amount) public {
+    function repay(address borrowAsset, address mortgageAsset, uint amount) public {
         // 归还资产
         IERC20(borrowAsset).transferFrom(msg.sender, address(this), amount);
 
