@@ -44,7 +44,13 @@ contract AssetReserve {
         console.log('after withdraw balance', IERC20(asset).balanceOf(address(this)));
     }
 
-    // 借钱
+    /*
+       借款
+       借USDT 抵押USDC
+       总USDT -
+       个人USDC存款 -
+       个人USDC抵押 +
+    */
     function borrow(address borrowAsset, address mortgageAsset, uint amount) public {
         // todo 判断是否有足够的同等价值的资产
         //require(amount <= assetreserve[msg.sender], "engouh");】
@@ -66,9 +72,22 @@ contract AssetReserve {
         console.log('msg.sender borrow balance', IERC20(borrowAsset).balanceOf(msg.sender));
     }
 
-    //    // 还钱
-    //    function giveback(uint amount) public {
-    //        assetreserve[msg.sender] = assetreserve[msg.sender] + amount;
-    //        ierc20(usdc).transferfrom(msg.sender, address(this), amount);
-    //    }
+    /*
+        还款
+        还USDT 抵押UDSC
+        总USDT +
+        个人USDC存款 +
+        个人USDC抵押 -
+    */
+    function giveback(address borrowAsset, address mortgageAsset, uint amount) public {
+        // 归还资产
+        IERC20(borrowAsset).transferFrom(msg.sender, address(this), amount);
+
+        // 增加总资产
+        assetReserve[borrowAsset].assetReserve += amount;
+
+        // 修改用户抵押数量
+        userAsset[mortgageAsset][msg.sender].assetReserve += amount;
+        userAsset[mortgageAsset][msg.sender].mortgageReserve -= amount;
+    }
 }
