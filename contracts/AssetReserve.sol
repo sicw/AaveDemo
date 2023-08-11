@@ -8,13 +8,18 @@ import "./UsdcToken.sol";
 
 contract AssetReserve {
 
+    uint interestRate = 10;
+
     struct AssetData {
-        uint assetReserve;  // 资产维度数量
+        uint assetReserve;      // 资产维度数量
+        uint interestReserve;   // (借贷or闪电贷)利息收益
     }
 
     struct UserData {
         uint assetReserve;      // 用户资产数量
         uint mortgageReserve;   // 用户抵押资产数量
+
+        uint borrowReserve;     // 借了多少资产
     }
 
     // 资产地址 => 资产数据
@@ -48,6 +53,7 @@ contract AssetReserve {
        借款
        借USDT 抵押USDC
        总USDT -
+       个人USDT存款 +
        个人USDC存款 -
        个人USDC抵押 +
     */
@@ -58,6 +64,8 @@ contract AssetReserve {
         // 扣除超额抵押资产到另外地址(用户)
         userAsset[mortgageAsset][msg.sender].assetReserve -= amount;
         userAsset[mortgageAsset][msg.sender].mortgageReserve += amount;
+
+        userAsset[borrowAsset][msg.sender].borrowReserve += amount;
 
         // 减少总资产中借出去的部分(总资产)
         assetReserve[borrowAsset].assetReserve -= amount;
@@ -76,18 +84,35 @@ contract AssetReserve {
         还款
         还USDT 抵押UDSC
         总USDT +
+        个人USDT存款 -
         个人USDC存款 +
         个人USDC抵押 -
     */
     function repay(address borrowAsset, address mortgageAsset, uint amount) public {
+        // 需要归还利息
+        require(amount >= interestRate + userAsset[borrowAsset][msg.sender].borrowReserve, 'repay not enough interest');
+
         // 归还资产
         IERC20(borrowAsset).transferFrom(msg.sender, address(this), amount);
 
-        // 增加总资产
-        assetReserve[borrowAsset].assetReserve += amount;
+        // 增加总资产(当时借出的)
+        assetReserve[borrowAsset].assetReserve += userAsset[borrowAsset][msg.sender].borrowReserve;
+        // 收益增加
+        assetReserve[borrowAsset].interestReserve += amount - userAsset[borrowAsset][msg.sender].borrowReserve;
+
+        // 每次归还都必须还完
+        userAsset[borrowAsset][msg.sender].borrowReserve = 0;
 
         // 修改用户抵押数量
-        userAsset[mortgageAsset][msg.sender].assetReserve += amount;
-        userAsset[mortgageAsset][msg.sender].mortgageReserve -= amount;
+        userAsset[mortgageAsset][msg.sender].assetReserve += userAsset[borrowAsset][msg.sender].borrowReserve;
+        userAsset[mortgageAsset][msg.sender].mortgageReserve -= userAsset[borrowAsset][msg.sender].borrowReserve;
     }
+
+    /*
+        可以多次借出
+        等额抵押
+        归还 + 10
+
+        收益和存储量分开存
+    */
 }
