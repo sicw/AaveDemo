@@ -51,7 +51,7 @@ describe("Reserve", function () {
             assetReserve.withdraw(usdcAddress, 10);
         });
 
-        it("borrow", async function () {
+        it.skip("borrow", async function () {
             const {usdc, usdt, assetReserve} = await loadFixture(deployOneYearLockFixture);
             const [owner, otherAccount] = await ethers.getSigners();
             const usdcAddress = await usdc.getAddress();

@@ -22,7 +22,6 @@ contract AToken is ERC20, ERC20Detailed {
     mapping (address => uint256) private redirectedBalances;
     mapping (address => address) private interestRedirectionAllowances;
 
-
     constructor(
         LendingPoolAddressesProvider _addressesProvider,
         address _underlyingAsset,
