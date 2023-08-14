@@ -25,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -152,5 +153,17 @@
     <state width="2539" height="692" key="GridCell.Tab.0.right/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691559055585" />
     <state width="2539" height="692" key="GridCell.Tab.0.right/0.23.1792.1033/1792.-185.2560.1417@1792.-185.2560.1417" timestamp="1691566543296" />
     <state width="1771" height="318" key="GridCell.Tab.0.right/0.23.1792.1036@0.23.1792.1036" timestamp="1691464858968" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/ethers/src.ts/abi/fragments.ts</url>
+          <line>481</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
