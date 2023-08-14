@@ -16,6 +16,8 @@ contract LendingPoolCore {
 
     mapping(address => CoreLibrary.ReserveData) internal reserves;
 
+    address[] public reservesList;
+
     /**
     * @dev gets the normalized income of the reserve. a value of 1e27 means there is no income. A value of 2e27 means there
     * there has been 100% income.
@@ -64,4 +66,33 @@ contract LendingPoolCore {
         }
     }
 
+    /**
+    * @dev initializes a reserve
+    * @param _reserve the address of the reserve
+    * @param _aTokenAddress the address of the overlying aToken contract
+    * @param _decimals the decimals of the reserve currency
+    * @param _interestRateStrategyAddress the address of the interest rate strategy contract
+    **/
+    function initReserve(
+        address _reserve,
+        address _aTokenAddress,
+        uint256 _decimals,
+        address _interestRateStrategyAddress
+    ) external onlyLendingPoolConfigurator {
+        // reserves[_reserve].init(_aTokenAddress, _decimals, _interestRateStrategyAddress);
+        addReserveToListInternal(_reserve);
+
+    }
+
+    /**
+    * @dev adds a reserve to the array of the reserves address
+    **/
+    function addReserveToListInternal(address _reserve) internal {
+        bool reserveAlreadyAdded = false;
+        for (uint256 i = 0; i < reservesList.length; i++)
+            if (reservesList[i] == _reserve) {
+                reserveAlreadyAdded = true;
+            }
+        if (!reserveAlreadyAdded) reservesList.push(_reserve);
+    }
 }
