@@ -81,7 +81,6 @@ contract LendingPoolCore {
     ) external {
         // reserves[_reserve].init(_aTokenAddress, _decimals, _interestRateStrategyAddress);
         addReserveToListInternal(_reserve);
-
     }
 
     /**
