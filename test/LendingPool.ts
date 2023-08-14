@@ -18,7 +18,15 @@ describe("Lending Pool", function () {
         const lendingPoolFactory = await ethers.getContractFactory("LendingPool");
         const lendingPool = await lendingPoolFactory.deploy();
 
-        const lendingPoolCoreFactory = await ethers.getContractFactory("LendingPoolCore");
+        const coreLibraryFactory = await ethers.getContractFactory("CoreLibrary");
+        const coreLibrary = await coreLibraryFactory.deploy();
+
+        const coreLibraryAddress = await coreLibrary.getAddress();
+        const lendingPoolCoreFactory = await ethers.getContractFactory("LendingPoolCore", {
+            libraries: {
+                CoreLibrary: coreLibraryAddress,
+            },
+        });
         const lendingPoolCore = await lendingPoolCoreFactory.deploy();
 
         const usdcTokenFactory = await ethers.getContractFactory("UsdcToken");
@@ -32,13 +40,13 @@ describe("Lending Pool", function () {
         const aTokenFactory = await ethers.getContractFactory("AToken");
         const aToken = await aTokenFactory.deploy(lendingPoolAddressesProviderAddress, usdcTokenAddress, 18, "AUSDC", "AUSDC");
 
-        return {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken};
+        return {lendingPool, lendingPoolCore, usdcTokenAddress, lendingPoolAddressesProvider, aToken};
     }
 
     describe("logic", function () {
         it("deposit", async function () {
-            const {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
-
+            const {lendingPool, lendingPoolCore, usdcTokenAddress, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
+            //lendingPool.deposit(usdcTokenAddress, 10000, 0);
         });
     });
 });

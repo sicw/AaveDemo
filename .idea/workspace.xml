@@ -11,22 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/contracts/v1/configuration/AddressStorage.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/configuration/LendingPoolAddressesProvider.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPool.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPoolCore.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/libraries/CoreLibrary.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/libraries/EthAddressLib.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/libraries/WadRayMath.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/tokenization/AToken.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/AssetReserve.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/AssetReserve.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/Lock.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/Lock.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/UsdcToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/UsdcToken.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/UsdtToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/UsdtToken.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hardhat.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPoolCore.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPoolCore.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/v1/libraries/CoreLibrary.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/v1/libraries/CoreLibrary.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LendingPool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/LendingPool.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/contracts/v1/libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/contracts/v1/tokenization" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/ts-mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -67,11 +55,11 @@
       <recent name="$PROJECT_DIR$/contracts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/contracts/v1/libraries" />
       <recent name="$PROJECT_DIR$/contracts/v1/tokenization" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/contracts/v1/libraries" />
       <recent name="$PROJECT_DIR$/contracts/v1/lendingpool" />
       <recent name="$PROJECT_DIR$/contracts/v1/configuration" />
-      <recent name="$PROJECT_DIR$/contracts" />
     </key>
   </component>
   <component name="RunManager">
@@ -113,7 +101,7 @@
       <workItem from="1691557939810" duration="1462000" />
       <workItem from="1691578681085" duration="8249000" />
       <workItem from="1691665790637" duration="1974000" />
-      <workItem from="1691723324648" duration="12257000" />
+      <workItem from="1691723324648" duration="16264000" />
     </task>
     <servers />
   </component>
