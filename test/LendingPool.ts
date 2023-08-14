@@ -31,6 +31,7 @@ describe("Lending Pool", function () {
 
         const lendingPoolAddressesProviderFactory = await ethers.getContractFactory("LendingPoolAddressesProvider");
         const lendingPoolAddressesProvider = await lendingPoolAddressesProviderFactory.deploy();
+        await lendingPoolAddressesProvider.setLendingPoolCoreImpl(await lendingPoolCore.getAddress());
 
         const lendingPoolAddressesProviderAddress = await lendingPoolAddressesProvider.getAddress();
         const usdcTokenAddress = await usdcToken.getAddress();
@@ -38,7 +39,6 @@ describe("Lending Pool", function () {
         const aToken = await aTokenFactory.deploy(lendingPoolAddressesProviderAddress, usdcTokenAddress, 18, "AUSDC", "AUSDC");
 
         // init data struct
-        await lendingPoolAddressesProvider.setLendingPoolCoreImpl(await lendingPoolCore.getAddress());
         await lendingPool.initialize(await lendingPoolAddressesProvider.getAddress());
 
         return {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken};
@@ -54,6 +54,8 @@ describe("Lending Pool", function () {
             await lendingPoolCore.initReserve(usdcTokenAddress, aTokenAddress, 18, await usdcToken.getAddress());
 
             // 存款
+            // transferFrom时要先approve
+            usdcToken.approve(await lendingPoolCore.getAddress(),10000);
             await lendingPool.deposit(usdcTokenAddress, 10000, 0);
         });
     });
