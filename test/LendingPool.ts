@@ -52,6 +52,8 @@ describe("Lending Pool", function () {
 
             // 添加存储库
             await lendingPoolCore.initReserve(usdcTokenAddress, aTokenAddress, 18, await usdcToken.getAddress());
+
+            // 存款
             await lendingPool.deposit(usdcTokenAddress, 10000, 0);
         });
     });
