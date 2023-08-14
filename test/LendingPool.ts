@@ -18,7 +18,14 @@ describe("Lending Pool", function () {
         const lendingPoolFactory = await ethers.getContractFactory("LendingPool");
         const lendingPool = await lendingPoolFactory.deploy();
 
-        const lendingPoolCoreFactory = await ethers.getContractFactory("LendingPoolCore");
+        const coreLibraryFactory = await ethers.getContractFactory("CoreLibrary");
+        const coreLibrary = await coreLibraryFactory.deploy();
+
+        const lendingPoolCoreFactory = await ethers.getContractFactory("LendingPoolCore", {
+            libraries: {
+                CoreLibrary: await coreLibrary.getAddress(),
+            }
+        });
         const lendingPoolCore = await lendingPoolCoreFactory.deploy();
 
         const usdcTokenFactory = await ethers.getContractFactory("UsdcToken");
