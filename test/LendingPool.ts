@@ -39,13 +39,13 @@ describe("Lending Pool", function () {
         const aTokenFactory = await ethers.getContractFactory("AToken");
         const aToken = await aTokenFactory.deploy(lendingPoolAddressesProviderAddress, usdcTokenAddress, 18, "AUSDC", "AUSDC");
 
-        return {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken};
+        return {lendingPool, lendingPoolCore, usdcTokenAddress, lendingPoolAddressesProvider, aToken};
     }
 
     describe("logic", function () {
         it("deposit", async function () {
-            const {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
-
+            const {lendingPool, lendingPoolCore, usdcTokenAddress, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
+            lendingPool.deposit(usdcTokenAddress, 10000, 0);
         });
     });
 });
