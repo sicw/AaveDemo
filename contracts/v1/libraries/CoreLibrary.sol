@@ -21,8 +21,10 @@ library CoreLibrary {
         /**
         * @dev refer to the whitepaper, section 1.1 basic concepts for a formal description of these properties.
         **/
+        // 流动性指数 ray表示
         //the liquidity index. Expressed in ray
         uint256 lastLiquidityCumulativeIndex;
+        // 当前的存款利率。以ray(27bit)表示
         //the current supply rate. Expressed in ray
         uint256 currentLiquidityRate;
         //the total borrows of the reserve at a stable rate. Expressed in the currency decimals
@@ -102,9 +104,12 @@ library CoreLibrary {
     view
     returns (uint256)
     {
+        // 上次更新时间 到 本次区块时间
         //solium-disable-next-line
         uint256 timeDifference = block.timestamp.sub(uint256(_lastUpdateTimestamp));
 
+        // 时间段 / 一年的秒数 = 占比
+        // _rate是年利率 本金 * _rate * 占比
         uint256 timeDelta = timeDifference.wadToRay().rayDiv(SECONDS_PER_YEAR.wadToRay());
 
         return _rate.rayMul(timeDelta).add(WadRayMath.ray());

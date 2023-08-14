@@ -8,6 +8,7 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 @dev Provides mul and div function for wads (decimal numbers with 18 digits precision) and rays (decimals with 27 digits)
  */
 
+// 为wads(精度为18位的十进制数)和rays(精度为27位的小数)提供mul和div函数
 library WadRayMath {
     using SafeMath for uint256;
 

@@ -21,6 +21,7 @@ contract LendingPoolCore {
     address[] public reservesList;
 
     /**
+    * 获取储备金的归一化收益。1e27表示没有收入。2e27表示这里有100%的收入。
     * @dev gets the normalized income of the reserve. a value of 1e27 means there is no income. A value of 2e27 means there
     * there has been 100% income.
     * @param _reserve the reserve address
