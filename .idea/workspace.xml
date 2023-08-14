@@ -11,22 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/contracts/v1/configuration/AddressStorage.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/configuration/LendingPoolAddressesProvider.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPool.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPoolCore.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/libraries/CoreLibrary.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/libraries/EthAddressLib.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/libraries/WadRayMath.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/v1/tokenization/AToken.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/AssetReserve.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/AssetReserve.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/Lock.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/Lock.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/UsdcToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/UsdcToken.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/UsdtToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/demo/UsdtToken.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hardhat.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,16 +46,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/demo" />
-      <recent name="$PROJECT_DIR$/contracts/v1/lendingpool" />
-      <recent name="$PROJECT_DIR$/contracts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/contracts/v1/libraries" />
       <recent name="$PROJECT_DIR$/contracts/v1/tokenization" />
       <recent name="$PROJECT_DIR$/contracts/v1/lendingpool" />
       <recent name="$PROJECT_DIR$/contracts/v1/configuration" />
+      <recent name="$PROJECT_DIR$/contracts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo" />
+      <recent name="$PROJECT_DIR$/contracts/v1/lendingpool" />
       <recent name="$PROJECT_DIR$/contracts" />
     </key>
   </component>
@@ -137,6 +122,10 @@
       <screen x="1792" y="-208" width="2560" height="1440" />
     </state>
     <state x="2536" y="174" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691386004580" />
+    <state x="1892" y="-108" width="2360" height="1240" key="DiffContextDialog" timestamp="1691987952662">
+      <screen x="1792" y="-208" width="2560" height="1440" />
+    </state>
+    <state x="1892" y="-108" width="2360" height="1240" key="DiffContextDialog/0.0.1792.1120/1792.-208.2560.1440@1792.-208.2560.1440" timestamp="1691987952662" />
     <state width="2539" height="692" key="GridCell.Tab.0.bottom" timestamp="1691566543298">
       <screen x="1792" y="-185" width="2560" height="1417" />
     </state>
