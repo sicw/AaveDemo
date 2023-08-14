@@ -28,18 +28,25 @@ describe("Lending Pool", function () {
 
         const usdcTokenFactory = await ethers.getContractFactory("UsdcToken");
         const usdcToken = await usdcTokenFactory.deploy();
+        const usdcTokenAddress = await usdcToken.getAddress();
 
         const lendingPoolAddressesProviderFactory = await ethers.getContractFactory("LendingPoolAddressesProvider");
         const lendingPoolAddressesProvider = await lendingPoolAddressesProviderFactory.deploy();
         await lendingPoolAddressesProvider.setLendingPoolCoreImpl(await lendingPoolCore.getAddress());
 
         const lendingPoolAddressesProviderAddress = await lendingPoolAddressesProvider.getAddress();
-        const usdcTokenAddress = await usdcToken.getAddress();
         const aTokenFactory = await ethers.getContractFactory("AToken");
         const aToken = await aTokenFactory.deploy(lendingPoolAddressesProviderAddress, usdcTokenAddress, 18, "AUSDC", "AUSDC");
+        const aTokenAddress = await aToken.getAddress();
+
 
         // init data struct
         await lendingPool.initialize(await lendingPoolAddressesProvider.getAddress());
+
+
+        // 添加存储库
+        await lendingPoolCore.initReserve(usdcTokenAddress, aTokenAddress, 18, await usdcToken.getAddress());
+
 
         return {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken};
     }
@@ -48,10 +55,6 @@ describe("Lending Pool", function () {
         it("deposit", async function () {
             const {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
             const usdcTokenAddress = await usdcToken.getAddress();
-            const aTokenAddress = await aToken.getAddress();
-
-            // 添加存储库
-            await lendingPoolCore.initReserve(usdcTokenAddress, aTokenAddress, 18, await usdcToken.getAddress());
 
             // 存款
             // transferFrom时要先approve
