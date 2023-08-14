@@ -37,13 +37,22 @@ describe("Lending Pool", function () {
         const aTokenFactory = await ethers.getContractFactory("AToken");
         const aToken = await aTokenFactory.deploy(lendingPoolAddressesProviderAddress, usdcTokenAddress, 18, "AUSDC", "AUSDC");
 
-        return {lendingPool, lendingPoolCore, usdcTokenAddress, lendingPoolAddressesProvider, aToken};
+        // init data struct
+        await lendingPoolAddressesProvider.setLendingPoolCoreImpl(await lendingPoolCore.getAddress());
+        await lendingPool.initialize(await lendingPoolAddressesProvider.getAddress());
+
+        return {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken};
     }
 
     describe("logic", function () {
         it("deposit", async function () {
-            const {lendingPool, lendingPoolCore, usdcTokenAddress, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
-            lendingPool.deposit(usdcTokenAddress, 10000, 0);
+            const {lendingPool, lendingPoolCore, usdcToken, lendingPoolAddressesProvider, aToken} = await loadFixture(deployLendingPoolFixture);
+            const usdcTokenAddress = await usdcToken.getAddress();
+            const aTokenAddress = await aToken.getAddress();
+
+            // 添加存储库
+            await lendingPoolCore.initReserve(usdcTokenAddress, aTokenAddress, 18, await usdcToken.getAddress());
+            await lendingPool.deposit(usdcTokenAddress, 10000, 0);
         });
     });
 });

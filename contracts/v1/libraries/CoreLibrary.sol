@@ -3,6 +3,9 @@ pragma solidity ^0.5.0;
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "./WadRayMath.sol";
 
+import "hardhat/console.sol";
+
+
 /**
 * @title CoreLibrary library
 * @author Aave

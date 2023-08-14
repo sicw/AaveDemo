@@ -7,6 +7,8 @@ import "openzeppelin-solidity/contracts/utils/Address.sol";
 import "../libraries/CoreLibrary.sol";
 import "../libraries/EthAddressLib.sol";
 
+import "hardhat/console.sol";
+
 contract LendingPoolCore {
     using SafeMath for uint256;
     using WadRayMath for uint256;
@@ -60,7 +62,7 @@ contract LendingPoolCore {
                 //send back excess ETH
                 uint256 excessAmount = msg.value.sub(_amount);
                 //solium-disable-next-line
-                (bool result, ) = _user.call.value(excessAmount).gas(50000)("");
+                (bool result,) = _user.call.value(excessAmount).gas(50000)("");
                 require(result, "Transfer of ETH failed");
             }
         }

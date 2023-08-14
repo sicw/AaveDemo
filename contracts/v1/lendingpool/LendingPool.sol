@@ -5,6 +5,8 @@ import "../configuration/LendingPoolAddressesProvider.sol";
 import "../tokenization/AToken.sol";
 import "./LendingPoolCore.sol";
 
+import "hardhat/console.sol";
+
 contract LendingPool {
 
     LendingPoolCore public core;
