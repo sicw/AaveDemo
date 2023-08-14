@@ -21,10 +21,11 @@ describe("Lending Pool", function () {
         const coreLibraryFactory = await ethers.getContractFactory("CoreLibrary");
         const coreLibrary = await coreLibraryFactory.deploy();
 
+        const coreLibraryAddress = await coreLibrary.getAddress();
         const lendingPoolCoreFactory = await ethers.getContractFactory("LendingPoolCore", {
             libraries: {
-                CoreLibrary: await coreLibrary.getAddress(),
-            }
+                CoreLibrary: coreLibraryAddress,
+            },
         });
         const lendingPoolCore = await lendingPoolCoreFactory.deploy();
 

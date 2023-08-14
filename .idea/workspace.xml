@@ -10,7 +10,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="cef01780-f651-4240-8001-c589de8f5191" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPoolCore.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/v1/lendingpool/LendingPoolCore.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/v1/libraries/CoreLibrary.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/v1/libraries/CoreLibrary.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LendingPool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/LendingPool.ts" afterDir="false" />
+    </list>
+>>>>>>> f561caebf1c3dff0da79d0a2956e8fef6d8d4dc6
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +47,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/contracts/v1/libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/contracts/v1/tokenization" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/ts-mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -46,11 +55,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/contracts/v1/libraries" />
       <recent name="$PROJECT_DIR$/contracts/v1/tokenization" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/contracts/v1/libraries" />
       <recent name="$PROJECT_DIR$/contracts/v1/lendingpool" />
       <recent name="$PROJECT_DIR$/contracts/v1/configuration" />
-      <recent name="$PROJECT_DIR$/contracts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/demo" />
@@ -97,7 +106,7 @@
       <workItem from="1691557939810" duration="1462000" />
       <workItem from="1691578681085" duration="8249000" />
       <workItem from="1691665790637" duration="1974000" />
-      <workItem from="1691723324648" duration="12257000" />
+      <workItem from="1691723324648" duration="16264000" />
     </task>
     <servers />
   </component>
