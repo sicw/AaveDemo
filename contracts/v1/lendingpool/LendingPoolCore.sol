@@ -97,4 +97,32 @@ contract LendingPoolCore {
             }
         if (!reserveAlreadyAdded) reservesList.push(_reserve);
     }
+
+    /**
+    * @dev gets the available liquidity in the reserve. The available liquidity is the balance of the core contract
+    * @param _reserve the reserve address
+    * @return the available liquidity
+    **/
+    function getReserveAvailableLiquidity(address _reserve) public view returns (uint256) {
+        uint256 balance = 0;
+
+        if (_reserve == EthAddressLib.ethAddress()) {
+            balance = address(this).balance;
+        } else {
+            balance = IERC20(_reserve).balanceOf(address(this));
+        }
+        return balance;
+    }
+
+    function transferToUser(address _reserve, address payable _user, uint256 _amount)
+    external
+    {
+        if (_reserve != EthAddressLib.ethAddress()) {
+            ERC20(_reserve).safeTransfer(_user, _amount);
+        } else {
+            //solium-disable-next-line
+            (bool result, ) = _user.call.value(_amount).gas(50000)("");
+            require(result, "Transfer of ETH failed");
+        }
+    }
 }

@@ -23,10 +23,33 @@ contract LendingPool {
     {
         AToken aToken = AToken(core.getReserveATokenAddress(_reserve));
 
+//        bool isFirstDeposit = aToken.balanceOf(msg.sender) == 0;
+//        core.updateStateOnDeposit(_reserve, msg.sender, _amount, isFirstDeposit);
+
         //minting AToken to user 1:1 with the specific exchange rate
         aToken.mintOnDeposit(msg.sender, _amount);
 
         //transfer to the core contract
         core.transferToReserve.value(msg.value)(_reserve, msg.sender, _amount);
     }
+
+    function redeemUnderlying(
+        address _reserve,
+        address payable _user,
+        uint256 _amount,
+        uint256 _aTokenBalanceAfterRedeem
+    )
+    external
+    {
+        uint256 currentAvailableLiquidity = core.getReserveAvailableLiquidity(_reserve);
+        require(
+            currentAvailableLiquidity >= _amount,
+            "There is not enough liquidity available to redeem"
+        );
+
+        // core.updateStateOnRedeem(_reserve, _user, _amount, _aTokenBalanceAfterRedeem == 0);
+
+        core.transferToUser(_reserve, _user, _amount);
+    }
+
 }
